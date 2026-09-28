@@ -1,0 +1,148 @@
+# Entity: changelog
+
+main: kit: entity: changelog: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 21
+        depth: 41
+      }
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "changelog"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}/changelog"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "flag_key"
+                or: "flag_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}/changelog"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "cursor"
+              "flag_key"
+              "limit"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+            {
+              var: "flag_key"
+            }
+            {
+              lit: "changelog"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.app") path("$.main.kit.entity.flag")]
+  ]
+
+}

@@ -1,0 +1,100 @@
+# BasicArtifactFlow
+
+main: kit: flow: BasicArtifactFlow:
+{
+  entity: "artifact",
+  kind: "basic",
+  name: "BasicArtifactFlow",
+  step: [
+    {
+      i: {
+        ref: "artifact_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        name: "name01",
+        namespace: "namespace01",
+        namespace_id: "namespace01",
+        ref: "ref01",
+        repo_id: "repo01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "artifact_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "artifact_ref01",
+        srcdatavar: "artifact_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "artifact01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-artifact_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "artifact_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "artifact01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "artifact_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicArtifactFlow"
+}

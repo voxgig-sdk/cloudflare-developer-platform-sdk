@@ -1,0 +1,204 @@
+# Entity: flagship_evaluation_result
+
+main: kit: entity: flagship_evaluation_result: {
+
+  alias: field: {}
+
+  fields: {
+    context: {
+      h: "Context"
+      n: "context"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 1
+      }
+    }
+    flagKey: {
+      h: "Flag Key"
+      n: "flagKey"
+      r: true
+      t: "`$STRING`"
+    }
+    reason: {
+      h: "Reason"
+      n: "reason"
+      r: true
+      t: "`$STRING`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 0
+      }
+    }
+    variant: {
+      h: "Variant"
+      n: "variant"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "flagship_evaluation_result"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/flagship/apps/{app_id}/evaluate"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/evaluate"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "evaluate"
+            }
+          ]
+          t: {
+            req: {
+              context: "`reqdata.context`"
+              flagKey: "`reqdata.flag_key`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/flagship/apps/{app_id}/evaluate"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "flag_key"
+                or: "flag_key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "targeting_key"
+                or: "targeting_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/evaluate"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "flag_key"
+              "targeting_key"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "evaluate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.app")]
+  ]
+
+}

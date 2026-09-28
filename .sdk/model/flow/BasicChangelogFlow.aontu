@@ -1,0 +1,28 @@
+# BasicChangelogFlow
+
+main: kit: flow: BasicChangelogFlow:
+{
+  entity: "changelog",
+  kind: "basic",
+  name: "BasicChangelogFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        app_id: "app01",
+        flag_key: "flag_key01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "changelog_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicChangelogFlow"
+}

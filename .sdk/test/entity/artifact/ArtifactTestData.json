@@ -1,0 +1,187 @@
+{
+  "existing": {
+    "artifact": {
+      "ARTIFACT00": {
+        "default_branch": "s82",
+        "description": "s83",
+        "errors": [],
+        "id": "ARTIFACT00",
+        "messages": [],
+        "name": "s87",
+        "read_only": true,
+        "repo": "s89",
+        "result": {},
+        "result_info": "s8b",
+        "scope": "s8c",
+        "success": false,
+        "ttl": 142,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "namespace": "NAMESPACE01",
+        "path": "PATH01",
+        "ref": "REF01",
+        "hash": "HASH01",
+        "repo_id": "REPO01"
+      },
+      "ARTIFACT01": {
+        "default_branch": "s104",
+        "description": "s105",
+        "errors": [],
+        "id": "ARTIFACT01",
+        "messages": [],
+        "name": "s109",
+        "read_only": true,
+        "repo": "s10b",
+        "result": {},
+        "result_info": "s10d",
+        "scope": "s10e",
+        "success": false,
+        "ttl": 272,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "namespace": "NAMESPACE01",
+        "path": "PATH01",
+        "ref": "REF01",
+        "hash": "HASH01",
+        "repo_id": "REPO01"
+      },
+      "ARTIFACT02": {
+        "default_branch": "s186",
+        "description": "s187",
+        "errors": [],
+        "id": "ARTIFACT02",
+        "messages": [],
+        "name": "s18b",
+        "read_only": true,
+        "repo": "s18d",
+        "result": {},
+        "result_info": "s18f",
+        "scope": "s190",
+        "success": false,
+        "ttl": 402,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "namespace": "NAMESPACE01",
+        "path": "PATH01",
+        "ref": "REF01",
+        "hash": "HASH01",
+        "repo_id": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "artifact": {
+      "artifact_ref01": {
+        "default_branch": "s208",
+        "description": "s209",
+        "errors": [],
+        "messages": [],
+        "name": "s20d",
+        "read_only": true,
+        "repo": "s20f",
+        "result": {},
+        "result_info": "s211",
+        "scope": "s212",
+        "success": false,
+        "ttl": 532
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/fork": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/import": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/artifacts/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/log": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/raw/{ref}/{path}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/blob/{hash}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/commit/{hash}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tree/{hash}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/artifacts/namespaces/{namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

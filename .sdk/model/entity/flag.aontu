@@ -1,0 +1,516 @@
+# Entity: flag
+
+main: kit: entity: flag: {
+
+  alias: field: {}
+
+  fields: {
+    default_variation: {
+      h: "Default Variation"
+      n: "default_variation"
+      r: true
+      sh: "Variation the API serves when the flag is off, or when it's on but no rule matches the context."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: true
+      sh: "When false, the flag bypasses all rules and always serves `default_variation`."
+      t: "`$BOOLEAN`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      sh: "Unique identifier for the flag within an app."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 5
+        count: 14
+        depth: 36
+      }
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      t: "`$OBJECT`"
+    }
+    rules: {
+      h: "Rules"
+      n: "rules"
+      r: true
+      sh: "Targeting rules evaluated in ascending `priority`; the first matching rule wins."
+      t: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 13
+        depth: 34
+      }
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    type: {
+      de: true
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Deprecated compatibility field."
+      t: "`$STRING`"
+    }
+    variations: {
+      h: "Variations"
+      n: "variations"
+      r: true
+      sh: "Map of variation name to value."
+      t: "`$OBJECT`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 1
+      }
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "flag"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/flagship/apps/{app_id}/flags"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+          ]
+          t: {
+            req: {
+              default_variation: "`reqdata.default_variation`"
+              description: "`reqdata.description`"
+              enabled: "`reqdata.enabled`"
+              key: "`reqdata.key`"
+              rules: "`reqdata.rule`"
+              type: "`reqdata.type`"
+              variations: "`reqdata.variation`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/flagship/apps/{app_id}/flags"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "cursor"
+              "limit"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "flag_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              flag_key: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "flag_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              flag_key: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "flag_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              flag_key: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "flags"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              default_variation: "`reqdata.default_variation`"
+              description: "`reqdata.description`"
+              enabled: "`reqdata.enabled`"
+              key: "`reqdata.key`"
+              rules: "`reqdata.rule`"
+              type: "`reqdata.type`"
+              variations: "`reqdata.variation`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.app")]
+  ]
+
+}

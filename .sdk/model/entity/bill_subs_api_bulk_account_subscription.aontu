@@ -1,0 +1,100 @@
+# Entity: bill_subs_api_bulk_account_subscription
+
+main: kit: entity: bill_subs_api_bulk_account_subscription: {
+
+  alias: field: {}
+
+  fields: {
+    coupon_code: {
+      h: "Coupon Code"
+      n: "coupon_code"
+      r: false
+      t: "`$STRING`"
+    }
+    payment_hold_id: {
+      fo: "int64"
+      h: "Payment Hold Id"
+      n: "payment_hold_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    subscriptions: {
+      h: "Subscriptions"
+      n: "subscriptions"
+      r: false
+      t: "`$ARRAY`"
+    }
+    user_is_on_session: {
+      h: "User Is On Session"
+      n: "user_is_on_session"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "bill_subs_api_bulk_account_subscription"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/bulk/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "idemp_key"
+                or: "idemp_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/bulk/subscriptions"
+          q: {
+            exist: [
+              "account_id"
+              "idemp_key"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "bulk"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

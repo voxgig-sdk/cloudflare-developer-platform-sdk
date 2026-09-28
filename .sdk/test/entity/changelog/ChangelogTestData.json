@@ -1,0 +1,54 @@
+{
+  "existing": {
+    "changelog": {
+      "CHANGELOG00": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "flag_key": "FLAG_KEY01"
+      },
+      "CHANGELOG01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "flag_key": "FLAG_KEY01"
+      },
+      "CHANGELOG02": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "flag_key": "FLAG_KEY01"
+      }
+    }
+  },
+  "new": {
+    "changelog": {
+      "changelog_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}/changelog": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

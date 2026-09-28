@@ -1,0 +1,54 @@
+{
+  "existing": {
+    "flagship_flag_definition": {
+      "FLAGSHIP_FLAG_DEFINITION00": {
+        "default_variation": "s32",
+        "enabled": false,
+        "key": "s34",
+        "rules": [],
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_FLAG_DEFINITION00"
+      },
+      "FLAGSHIP_FLAG_DEFINITION01": {
+        "default_variation": "s64",
+        "enabled": false,
+        "key": "s66",
+        "rules": [],
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_FLAG_DEFINITION01"
+      },
+      "FLAGSHIP_FLAG_DEFINITION02": {
+        "default_variation": "s96",
+        "enabled": false,
+        "key": "s98",
+        "rules": [],
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_FLAG_DEFINITION02"
+      }
+    }
+  },
+  "new": {
+    "flagship_flag_definition": {
+      "flagship_flag_definition_ref01": {
+        "default_variation": "sc8",
+        "enabled": false,
+        "key": "sca",
+        "rules": [],
+        "variations": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/flagship/apps/{app_id}/definitions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

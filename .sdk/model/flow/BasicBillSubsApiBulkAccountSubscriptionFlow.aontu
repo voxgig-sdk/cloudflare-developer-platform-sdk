@@ -1,0 +1,22 @@
+# BasicBillSubsApiBulkAccountSubscriptionFlow
+
+main: kit: flow: BasicBillSubsApiBulkAccountSubscriptionFlow:
+{
+  entity: "bill_subs_api_bulk_account_subscription",
+  kind: "basic",
+  name: "BasicBillSubsApiBulkAccountSubscriptionFlow",
+  step: [
+    {
+      i: {
+        ref: "bill_subs_api_bulk_account_subscription_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBillSubsApiBulkAccountSubscriptionFlow"
+}

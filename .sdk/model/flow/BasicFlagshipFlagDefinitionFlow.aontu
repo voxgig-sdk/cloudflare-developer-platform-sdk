@@ -1,0 +1,33 @@
+# BasicFlagshipFlagDefinitionFlow
+
+main: kit: flow: BasicFlagshipFlagDefinitionFlow:
+{
+  entity: "flagship_flag_definition",
+  kind: "basic",
+  name: "BasicFlagshipFlagDefinitionFlow",
+  step: [
+    {
+      i: {
+        ref: "flagship_flag_definition_ref01",
+        srcdatavar: "flagship_flag_definition_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "flagship_flag_definition01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-flagship_flag_definition_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFlagshipFlagDefinitionFlow"
+}

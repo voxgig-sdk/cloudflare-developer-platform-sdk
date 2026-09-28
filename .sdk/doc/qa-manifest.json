@@ -1,0 +1,32 @@
+{
+  "files": [
+    "SUMMARY.md",
+    "docs/api/app.html",
+    "docs/api/artifact.html",
+    "docs/api/bill_subs_api_bulk_account_subscription.html",
+    "docs/api/brand_protection.html",
+    "docs/api/changelog.html",
+    "docs/api/flag.html",
+    "docs/api/flagship_evaluation_result.html",
+    "docs/api/flagship_flag_definition.html",
+    "docs/api/index.html",
+    "docs/api/monolith_health.html",
+    "docs/api/zone_snippet.html",
+    "docs/features/test.html",
+    "docs/guides/authentication.html",
+    "docs/guides/concepts.html",
+    "docs/guides/errors.html",
+    "docs/guides/first-call.html",
+    "docs/index.html",
+    "docs/sdks/go.html",
+    "docs/sdks/lua.html",
+    "docs/sdks/php.html",
+    "docs/sdks/py.html",
+    "docs/sdks/rb.html",
+    "docs/sdks/ts.html",
+    "docs/tools/go-cli.html",
+    "docs/tools/go-mcp.html"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {}
+}

@@ -1,0 +1,12 @@
+# Flows
+
+@"./BasicAppFlow.aontu"
+@"./BasicArtifactFlow.aontu"
+@"./BasicBillSubsApiBulkAccountSubscriptionFlow.aontu"
+@"./BasicBrandProtectionFlow.aontu"
+@"./BasicChangelogFlow.aontu"
+@"./BasicFlagFlow.aontu"
+@"./BasicFlagshipEvaluationResultFlow.aontu"
+@"./BasicFlagshipFlagDefinitionFlow.aontu"
+@"./BasicMonolithHealthFlow.aontu"
+@"./BasicZoneSnippetFlow.aontu"

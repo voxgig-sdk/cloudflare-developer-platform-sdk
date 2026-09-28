@@ -1,0 +1,1602 @@
+# Entity: artifact
+
+main: kit: entity: artifact: {
+
+  alias: field: {}
+
+  fields: {
+    default_branch: {
+      h: "Default Branch"
+      n: "default_branch"
+      r: false
+      sh: "Git branch name."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    read_only: {
+      h: "Read Only"
+      n: "read_only"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    repo: {
+      h: "Repo"
+      n: "repo"
+      r: true
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    scope: {
+      h: "Scope"
+      n: "scope"
+      r: false
+      t: "`$STRING`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    ttl: {
+      h: "Ttl"
+      n: "ttl"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "artifact"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/fork"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/fork"
+          q: {
+            "$action": "fork"
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "fork"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/import"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/import"
+          q: {
+            "$action": "import"
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "import"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/tokens"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "tokens"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/artifacts/namespaces"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/artifacts/namespaces"
+          q: {
+            "$action": "namespace"
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "created_at"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos"
+          q: {
+            exist: [
+              "account_id"
+              "cursor"
+              "direction"
+              "limit"
+              "namespace_id"
+              "search"
+              "sort"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/log"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "ref"
+                or: "ref"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/log"
+          q: {
+            exist: [
+              "account_id"
+              "limit"
+              "name"
+              "namespace_id"
+              "offset"
+              "ref"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "log"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tokens"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 30
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "active"
+                k: "query"
+                n: "state"
+                or: "state"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tokens"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+              "page"
+              "per_page"
+              "state"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "tokens"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces"
+          q: {
+            "$action": "namespace"
+            exist: [
+              "account_id"
+              "cursor"
+              "limit"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/raw/{ref}/{path}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "path"
+                or: "path"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "ref"
+                or: "ref"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/raw/{ref}/{path}"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+              "namespace"
+              "path"
+              "ref"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "raw"
+            }
+            {
+              var: "ref"
+            }
+            {
+              var: "path"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/file"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "path"
+                or: "path"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "ref"
+                or: "ref"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/file"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+              "path"
+              "ref"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "file"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/blob/{hash}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "hash"
+                or: "hash"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "repo_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/blob/{hash}"
+          q: {
+            exist: [
+              "account_id"
+              "hash"
+              "namespace_id"
+              "repo_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "repo_id"
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "repo_id"
+            }
+            {
+              lit: "blob"
+            }
+            {
+              var: "hash"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/commit/{hash}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "hash"
+                or: "hash"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "repo_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/commit/{hash}"
+          q: {
+            exist: [
+              "account_id"
+              "hash"
+              "namespace_id"
+              "repo_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "repo_id"
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "repo_id"
+            }
+            {
+              lit: "commit"
+            }
+            {
+              var: "hash"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tree/{hash}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "hash"
+                or: "hash"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "repo_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tree/{hash}"
+          q: {
+            exist: [
+              "account_id"
+              "hash"
+              "namespace_id"
+              "repo_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "repo_id"
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "repo_id"
+            }
+            {
+              lit: "tree"
+            }
+            {
+              var: "hash"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/artifacts/namespaces/{namespace}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}"
+          q: {
+            exist: [
+              "account_id"
+              "namespace"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/tokens/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "tokens"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace_id"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "namespace"
+                or: "namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/artifacts/namespaces/{namespace}"
+          q: {
+            exist: [
+              "account_id"
+              "namespace"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

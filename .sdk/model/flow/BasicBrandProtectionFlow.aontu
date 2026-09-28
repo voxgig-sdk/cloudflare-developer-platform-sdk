@@ -1,0 +1,36 @@
+# BasicBrandProtectionFlow
+
+main: kit: flow: BasicBrandProtectionFlow:
+{
+  entity: "brand_protection",
+  kind: "basic",
+  name: "BasicBrandProtectionFlow",
+  step: [
+    {
+      i: {
+        ref: "brand_protection_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "brand_protection_ref01",
+        srcdatavar: "brand_protection_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-brand_protection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBrandProtectionFlow"
+}

@@ -1,0 +1,65 @@
+# Entity: brand_protection
+
+main: kit: entity: brand_protection: {
+
+  alias: field: {}
+
+  name: "brand_protection"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /internal/submit"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/internal/submit"
+          s: [
+            {
+              lit: "internal"
+            }
+            {
+              lit: "submit"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /ready"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/ready"
+          s: [
+            {
+              lit: "ready"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

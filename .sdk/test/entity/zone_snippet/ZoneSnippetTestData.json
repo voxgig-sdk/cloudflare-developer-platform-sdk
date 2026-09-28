@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "zone_snippet": {
+      "ZONE_SNIPPET00": {
+        "errors": [],
+        "id": "ZONE_SNIPPET00",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "zone_id": "ZONE01",
+        "snippet_name": "SNIPPET_NAME01"
+      },
+      "ZONE_SNIPPET01": {
+        "errors": [],
+        "id": "ZONE_SNIPPET01",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "zone_id": "ZONE01",
+        "snippet_name": "SNIPPET_NAME01"
+      },
+      "ZONE_SNIPPET02": {
+        "errors": [],
+        "id": "ZONE_SNIPPET02",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "zone_id": "ZONE01",
+        "snippet_name": "SNIPPET_NAME01"
+      }
+    }
+  },
+  "new": {
+    "zone_snippet": {
+      "zone_snippet_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/snippets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/snippets/snippet_rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/snippets/{snippet_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/snippets/{snippet_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/snippets/{snippet_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/snippets/snippet_rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/snippets/{snippet_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/snippets/snippet_rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

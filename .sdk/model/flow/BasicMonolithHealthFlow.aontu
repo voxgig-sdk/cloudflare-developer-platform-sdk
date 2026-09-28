@@ -1,0 +1,22 @@
+# BasicMonolithHealthFlow
+
+main: kit: flow: BasicMonolithHealthFlow:
+{
+  entity: "monolith_health",
+  kind: "basic",
+  name: "BasicMonolithHealthFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "monolith_health_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMonolithHealthFlow"
+}

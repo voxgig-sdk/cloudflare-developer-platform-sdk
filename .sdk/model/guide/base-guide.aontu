@@ -1,0 +1,187 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 10
+  metrics: count: path: 30
+  metrics: count: method: 45
+
+  entity: app: {
+    path: "/accounts/{account_id}/flagship/apps": {
+      op: create: method: *POST
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/flagship/apps/{app_id}": {
+      rename: param: "app_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+    }
+  }
+
+  entity: artifact: {
+    path: "/accounts/{account_id}/artifacts/namespaces": {
+      action: "namespace": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos": {
+      rename: param: "namespace": *"namespace_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}": {
+      rename: param: "namespace": *"namespace_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/blob/{hash}": {
+      rename: param: "name": *"repo_id"
+      rename: param: "namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/commit/{hash}": {
+      rename: param: "name": *"repo_id"
+      rename: param: "namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/file": {
+      rename: param: "namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/fork": {
+      action: "fork": {}
+      rename: param: "namespace": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/import": {
+      action: "import": {}
+      rename: param: "namespace": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/log": {
+      rename: param: "namespace": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/raw/{ref}/{path}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tokens": {
+      rename: param: "namespace": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/tree/{hash}": {
+      rename: param: "name": *"repo_id"
+      rename: param: "namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/tokens": {
+      rename: param: "namespace": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/artifacts/namespaces/{namespace}/tokens/{id}": {
+      rename: param: "namespace": *"namespace_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: bill_subs_api_bulk_account_subscription: {
+    path: "/accounts/{account_id}/bulk/subscriptions": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: brand_protection: {
+    path: "/internal/submit": {
+      op: create: method: *POST
+    }
+    path: "/ready": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: changelog: {
+    path: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}/changelog": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: flag: {
+    path: "/accounts/{account_id}/flagship/apps/{app_id}/flags": {
+      op: create: method: *POST
+      op: create: transform: req: "default_variation": *("`reqdata.default_variation`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "enabled": *("`reqdata.enabled`")|top
+      op: create: transform: req: "key": *("`reqdata.key`")|top
+      op: create: transform: req: "rules": *("`reqdata.rule`")|top
+      op: create: transform: req: "type": *("`reqdata.type`")|top
+      op: create: transform: req: "variations": *("`reqdata.variation`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}": {
+      rename: param: "flag_key": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "default_variation": *("`reqdata.default_variation`")|top
+      op: update: transform: req: "description": *("`reqdata.description`")|top
+      op: update: transform: req: "enabled": *("`reqdata.enabled`")|top
+      op: update: transform: req: "key": *("`reqdata.key`")|top
+      op: update: transform: req: "rules": *("`reqdata.rule`")|top
+      op: update: transform: req: "type": *("`reqdata.type`")|top
+      op: update: transform: req: "variations": *("`reqdata.variation`")|top
+    }
+  }
+
+  entity: flagship_evaluation_result: {
+    path: "/accounts/{account_id}/flagship/apps/{app_id}/evaluate": {
+      op: create: method: *POST
+      op: create: transform: req: "context": *("`reqdata.context`")|top
+      op: create: transform: req: "flagKey": *("`reqdata.flag_key`")|top
+      op: load: method: *GET
+    }
+  }
+
+  entity: flagship_flag_definition: {
+    path: "/accounts/{account_id}/flagship/apps/{app_id}/definitions": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.flags`")|top
+    }
+  }
+
+  entity: monolith_health: {
+    path: "/api/v4/health": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: zone_snippet: {
+    path: "/zones/{zone_id}/snippets": {
+      rename: param: "zone_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/zones/{zone_id}/snippets/snippet_rules": {
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/zones/{zone_id}/snippets/{snippet_name}": {
+      rename: param: "snippet_name": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/zones/{zone_id}/snippets/{snippet_name}/content": {
+      op: load: method: *GET
+    }
+  }
+
+}

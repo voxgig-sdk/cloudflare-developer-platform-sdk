@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "bill_subs_api_bulk_account_subscription": {
+      "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION00": {
+        "coupon_code": "s28",
+        "payment_hold_id": "PAYMENT_HOLD01",
+        "subscriptions": [],
+        "user_is_on_session": false,
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION00"
+      },
+      "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION01": {
+        "coupon_code": "s50",
+        "payment_hold_id": "PAYMENT_HOLD01",
+        "subscriptions": [],
+        "user_is_on_session": false,
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION01"
+      },
+      "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION02": {
+        "coupon_code": "s78",
+        "payment_hold_id": "PAYMENT_HOLD01",
+        "subscriptions": [],
+        "user_is_on_session": false,
+        "account_id": "ACCOUNT01",
+        "id": "BILL_SUBS_API_BULK_ACCOUNT_SUBSCRIPTION02"
+      }
+    }
+  },
+  "new": {
+    "bill_subs_api_bulk_account_subscription": {
+      "bill_subs_api_bulk_account_subscription_ref01": {
+        "coupon_code": "sa0",
+        "payment_hold_id": "PAYMENT_HOLD01",
+        "subscriptions": [],
+        "user_is_on_session": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/bulk/subscriptions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

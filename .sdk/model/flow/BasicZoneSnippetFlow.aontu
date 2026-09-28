@@ -1,0 +1,67 @@
+# BasicZoneSnippetFlow
+
+main: kit: flow: BasicZoneSnippetFlow:
+{
+  entity: "zone_snippet",
+  kind: "basic",
+  name: "BasicZoneSnippetFlow",
+  step: [
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "zone_snippet_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "zone_snippet_ref01",
+        srcdatavar: "zone_snippet_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-zone_snippet_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "zone_snippet_ref01",
+        srcdatavar: "zone_snippet_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "zone_snippet01",
+        zone_id: "zone01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-zone_snippet_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicZoneSnippetFlow"
+}

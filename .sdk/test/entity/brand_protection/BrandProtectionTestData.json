@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "brand_protection": {
+      "BRAND_PROTECTION00": {
+        "id": "BRAND_PROTECTION00"
+      },
+      "BRAND_PROTECTION01": {
+        "id": "BRAND_PROTECTION01"
+      },
+      "BRAND_PROTECTION02": {
+        "id": "BRAND_PROTECTION02"
+      }
+    }
+  },
+  "new": {
+    "brand_protection": {
+      "brand_protection_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /internal/submit": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /ready": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

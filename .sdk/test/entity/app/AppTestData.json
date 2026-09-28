@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "app": {
+      "APP00": {
+        "errors": [],
+        "id": "APP00",
+        "messages": [],
+        "name": "s3f",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "APP01": {
+        "errors": [],
+        "id": "APP01",
+        "messages": [],
+        "name": "s7b",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "APP02": {
+        "errors": [],
+        "id": "APP02",
+        "messages": [],
+        "name": "sb7",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "app": {
+      "app_ref01": {
+        "errors": [],
+        "messages": [],
+        "name": "sf3",
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/flagship/apps": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/flagship/apps": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/flagship/apps/{app_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/flagship/apps/{app_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/flagship/apps/{app_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

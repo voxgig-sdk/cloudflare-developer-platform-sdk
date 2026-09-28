@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "monolith_health": {
+      "MONOLITH_HEALTH00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      },
+      "MONOLITH_HEALTH01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      },
+      "MONOLITH_HEALTH02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "new": {
+    "monolith_health": {
+      "monolith_health_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v4/health": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

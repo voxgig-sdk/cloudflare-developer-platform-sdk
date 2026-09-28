@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BillSubsApiBulkAccountSubscription | Cloudflare Developer Platform</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Developer Platform<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-developer-platform-sdk">voxgig-sdk/cloudflare-developer-platform-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Developer Platform</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/app.html">App</a>
+<a href="../api/artifact.html">Artifact</a>
+<a aria-current="page" href="../api/bill_subs_api_bulk_account_subscription.html">BillSubsApiBulkAccountSubscription</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idbulksubscriptions">POST /accounts/{account_id}/bulk/subscriptions</a></div>
+<a href="../api/brand_protection.html">BrandProtection</a>
+<a href="../api/changelog.html">Changelog</a>
+<a href="../api/flag.html">Flag</a>
+<a href="../api/flagship_evaluation_result.html">FlagshipEvaluationResult</a>
+<a href="../api/flagship_flag_definition.html">FlagshipFlagDefinition</a>
+<a href="../api/monolith_health.html">MonolithHealth</a>
+<a href="../api/zone_snippet.html">ZoneSnippet</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="billsubsapibulkaccountsubscription">BillSubsApiBulkAccountSubscription</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idbulksubscriptions"><code>/accounts/{account_id}/bulk/subscriptions</code></a></td>
+<td><code>create</code></td>
+<td>Create Subscriptions response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.BillSubsApiBulkAccountSubscription(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:BillSubsApiBulkAccountSubscription():create({ account_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;BillSubsApiBulkAccountSubscription()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.BillSubsApiBulkAccountSubscription().create({ &quot;account_id&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.BillSubsApiBulkAccountSubscription.create({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.BillSubsApiBulkAccountSubscription().create({ account_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>coupon_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Coupon Code</td>
+</tr>
+<tr>
+<td><code>payment_hold_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Payment Hold Id</td>
+</tr>
+<tr>
+<td><code>subscriptions</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Subscriptions</td>
+</tr>
+<tr>
+<td><code>user_is_on_session</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>User Is On Session</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idbulksubscriptions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/bulk/subscriptions</h3>
+<p>Operation ID: <code>account-subscriptions-bulk-create-subscription</code>.</p>
+<p>Authentication: API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>) or bearer token (<code>api_token</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>idemp_key</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>coupon_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_hold_id</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subscriptions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subscriptions[].app</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Cloudflare Apps Marketplace is sunset. This field is retained for legacy grandfathered app subscriptions only.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].app.install_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>app install id.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Configurable component values for the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].default</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The default amount assigned.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].display_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A human-readable version of the component name.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].kind</code></td>
+<td><code>enum: enum, sum, usage</code></td>
+<td>No</td>
+<td>The type of component value. &quot;enum&quot; for discrete values (including boolean on/off toggles where 0=off and 1=on), &quot;sum&quot; for countable quantities, &quot;usage&quot; for metered billing components.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the component value.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].price</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The unit price for the component value.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].component_values[].value</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The amount of the component value assigned.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The monetary unit in which pricing information is displayed.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].current_period_end</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The end of the current period and also when the next billing is due.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].current_period_start</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>When the current billing period started. May match <code>initial_period_start</code> if this is the first period.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].frequency</code></td>
+<td><code>enum: weekly, monthly, quarterly, yearly</code></td>
+<td>No</td>
+<td>How often the subscription is renewed automatically.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Subscription identifier tag.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].price</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The price of the subscription that will be billed, in US dollars.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The rate plan applied to the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The currency applied to the rate plan subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.externally_managed</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether this rate plan is managed externally from Cloudflare.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the rate plan.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.is_contract</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether a rate plan is enterprise-based (or newly adopted term contract).</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.public_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The full name of the rate plan.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.scope</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The scope that this rate plan applies to.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].rate_plan.sets</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>The list of sets this rate plan applies to. Returns array of strings.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].state</code></td>
+<td><code>enum: Trial, Provisioned, Paid, AwaitingPayment, Cancelled, Failed, ...</code></td>
+<td>No</td>
+<td>The state that the subscription is in.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].zone</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A simple zone object. May have null properties if not a zone subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].zone.id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Identifier</td>
+</tr>
+<tr>
+<td><code>subscriptions[].zone.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The domain name</td>
+</tr>
+<tr>
+<td><code>user_is_on_session</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-create-subscriptions-response" class="status" data-status="2xx">200: Create Subscriptions response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-create-subscriptions-response-failure">4XX: Create Subscriptions response failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

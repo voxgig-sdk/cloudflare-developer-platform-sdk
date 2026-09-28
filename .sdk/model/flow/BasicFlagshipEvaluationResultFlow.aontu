@@ -1,0 +1,46 @@
+# BasicFlagshipEvaluationResultFlow
+
+main: kit: flow: BasicFlagshipEvaluationResultFlow:
+{
+  entity: "flagship_evaluation_result",
+  kind: "basic",
+  name: "BasicFlagshipEvaluationResultFlow",
+  step: [
+    {
+      i: {
+        ref: "flagship_evaluation_result_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        app_id: "app01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "flagship_evaluation_result_ref01",
+        srcdatavar: "flagship_evaluation_result_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "flagship_evaluation_result01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-flagship_evaluation_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFlagshipEvaluationResultFlow"
+}

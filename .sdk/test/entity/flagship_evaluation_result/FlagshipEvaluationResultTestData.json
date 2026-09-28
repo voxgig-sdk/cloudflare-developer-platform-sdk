@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "flagship_evaluation_result": {
+      "FLAGSHIP_EVALUATION_RESULT00": {
+        "context": {},
+        "flagKey": "s33",
+        "reason": "s34",
+        "value": "s35",
+        "variant": "s36",
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_EVALUATION_RESULT00"
+      },
+      "FLAGSHIP_EVALUATION_RESULT01": {
+        "context": {},
+        "flagKey": "s65",
+        "reason": "s66",
+        "value": "s67",
+        "variant": "s68",
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_EVALUATION_RESULT01"
+      },
+      "FLAGSHIP_EVALUATION_RESULT02": {
+        "context": {},
+        "flagKey": "s97",
+        "reason": "s98",
+        "value": "s99",
+        "variant": "s9a",
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01",
+        "id": "FLAGSHIP_EVALUATION_RESULT02"
+      }
+    }
+  },
+  "new": {
+    "flagship_evaluation_result": {
+      "flagship_evaluation_result_ref01": {
+        "context": {},
+        "flagKey": "sc9",
+        "reason": "sca",
+        "value": "scb",
+        "variant": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/flagship/apps/{app_id}/evaluate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/flagship/apps/{app_id}/evaluate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

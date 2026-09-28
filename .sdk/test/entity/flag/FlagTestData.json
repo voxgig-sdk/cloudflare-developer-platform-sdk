@@ -1,0 +1,102 @@
+{
+  "existing": {
+    "flag": {
+      "FLAG00": {
+        "default_variation": "s82",
+        "description": "s83",
+        "enabled": true,
+        "errors": [],
+        "id": "FLAG00",
+        "key": "s87",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "type": "s8d",
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01"
+      },
+      "FLAG01": {
+        "default_variation": "s104",
+        "description": "s105",
+        "enabled": true,
+        "errors": [],
+        "id": "FLAG01",
+        "key": "s109",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "type": "s10f",
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01"
+      },
+      "FLAG02": {
+        "default_variation": "s186",
+        "description": "s187",
+        "enabled": true,
+        "errors": [],
+        "id": "FLAG02",
+        "key": "s18b",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "type": "s191",
+        "variations": {},
+        "account_id": "ACCOUNT01",
+        "app_id": "APP01"
+      }
+    }
+  },
+  "new": {
+    "flag": {
+      "flag_ref01": {
+        "default_variation": "s208",
+        "description": "s209",
+        "enabled": true,
+        "errors": [],
+        "key": "s20d",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "rules": [],
+        "success": true,
+        "type": "s213",
+        "variations": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/flagship/apps/{app_id}/flags": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/flagship/apps/{app_id}/flags": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

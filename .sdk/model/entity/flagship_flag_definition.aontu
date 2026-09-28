@@ -1,0 +1,135 @@
+# Entity: flagship_flag_definition
+
+main: kit: entity: flagship_flag_definition: {
+
+  alias: field: {}
+
+  fields: {
+    default_variation: {
+      h: "Default Variation"
+      n: "default_variation"
+      r: true
+      sh: "Variation the API serves when the flag is off, or when it's on but no rule matches the context."
+      t: "`$STRING`"
+    }
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: true
+      sh: "When false, the flag bypasses all rules and always serves `default_variation`."
+      t: "`$BOOLEAN`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      sh: "Unique identifier for the flag within an app."
+      t: "`$STRING`"
+    }
+    rules: {
+      h: "Rules"
+      n: "rules"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 13
+        depth: 34
+      }
+    }
+    variations: {
+      h: "Variations"
+      n: "variations"
+      r: true
+      sh: "Map of variation name to value."
+      t: "`$OBJECT`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 1
+      }
+    }
+  }
+
+  name: "flagship_flag_definition"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/flagship/apps/{app_id}/definitions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "if_none_match"
+                or: "if_none_match"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/flagship/apps/{app_id}/definitions"
+          q: {
+            exist: [
+              "account_id"
+              "app_id"
+              "if_none_match"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "flagship"
+            }
+            {
+              lit: "apps"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "definitions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.flags`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.app")]
+  ]
+
+}

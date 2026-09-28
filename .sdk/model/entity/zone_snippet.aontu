@@ -1,0 +1,543 @@
+# Entity: zone_snippet
+
+main: kit: entity: zone_snippet: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        load: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Lists error messages."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      sh: "Contain warning messages."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Define a snippet."
+      t: "`$OBJECT`"
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      sh: "Additional information to navigate the results."
+      t: "`$OBJECT`"
+    }
+    rules: {
+      h: "Rules"
+      n: "rules"
+      r: true
+      sh: "Lists snippet rules."
+      t: "`$ARRAY`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      op: {
+        list: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        load: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      sh: "Indicate whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "zone_snippet"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /zones/{zone_id}/snippets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/snippets"
+          q: {
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          r: {
+            param: {
+              zone_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "snippets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /zones/{zone_id}/snippets/snippet_rules"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/snippets/snippet_rules"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              lit: "snippet_rules"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /zones/{zone_id}/snippets/{snippet_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "my_snippet"
+                k: "param"
+                n: "id"
+                or: "snippet_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/snippets/{snippet_name}"
+          q: {
+            exist: [
+              "id"
+              "zone_id"
+            ]
+          }
+          r: {
+            param: {
+              snippet_name: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /zones/{zone_id}/snippets/{snippet_name}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "my_snippet"
+                k: "param"
+                n: "snippet_name"
+                or: "snippet_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/snippets/{snippet_name}/content"
+          q: {
+            exist: [
+              "snippet_name"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              var: "snippet_name"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /zones/{zone_id}/snippets/{snippet_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "my_snippet"
+                k: "param"
+                n: "id"
+                or: "snippet_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/zones/{zone_id}/snippets/{snippet_name}"
+          q: {
+            exist: [
+              "id"
+              "zone_id"
+            ]
+          }
+          r: {
+            param: {
+              snippet_name: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /zones/{zone_id}/snippets/snippet_rules"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/zones/{zone_id}/snippets/snippet_rules"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              lit: "snippet_rules"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /zones/{zone_id}/snippets/{snippet_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "my_snippet"
+                k: "param"
+                n: "id"
+                or: "snippet_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/zones/{zone_id}/snippets/{snippet_name}"
+          q: {
+            exist: [
+              "id"
+              "zone_id"
+            ]
+          }
+          r: {
+            param: {
+              snippet_name: "id"
+            }
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /zones/{zone_id}/snippets/snippet_rules"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "9f1839b6152d298aca64c4e906b6d074"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/zones/{zone_id}/snippets/snippet_rules"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "snippets"
+            }
+            {
+              lit: "snippet_rules"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
